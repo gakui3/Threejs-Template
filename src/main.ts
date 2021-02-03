@@ -3,7 +3,7 @@ import testVert from './shaders/test.vert';
 import testFrag from './shaders/test.frag';
 
 (function () {
-  const canvas: HTMLCanvasElement = document.querySelector('#c');
+  const canvas: any = document.querySelector('#c');
   const renderer = new THREE.WebGLRenderer({ canvas });
   renderer.setSize(800, 600);
   document.body.appendChild(renderer.domElement);
