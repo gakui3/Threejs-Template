@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import testVert from './shaders/test.vert';
 import testFrag from './shaders/test.frag';
 
@@ -21,8 +22,12 @@ function init() {
 
 function addCamera() {
   camera = new THREE.PerspectiveCamera(45, 800 / 600, 0.1, 100);
-  camera.position.set(0, 0, 0);
+  camera.position.set(0, 0, -10);
   camera.aspect = canvas.clientWidth / canvas.clientHeight;
+
+  const controls = new OrbitControls(camera, canvas);
+  controls.target.set(0, 0, 0);
+  controls.update();
 }
 
 function addObject() {
@@ -34,7 +39,6 @@ function addObject() {
   });
 
   const box = new THREE.Mesh(geometry, mat);
-  box.position.z = -10;
   scene.add(box);
 }
 
