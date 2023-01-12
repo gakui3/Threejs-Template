@@ -4,6 +4,8 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import testVert from "./shaders/test.vert";
 import testFrag from "./shaders/test.frag";
 
+import { hoge } from "./test.jsx";
+
 let canvas, renderer, scene, camera, geometry, gui;
 
 const param = {
@@ -18,6 +20,8 @@ function init () {
   renderer = new THREE.WebGLRenderer({ canvas });
   document.body.appendChild(renderer.domElement);
   scene = new THREE.Scene();
+
+  hoge();
 }
 
 function addCamera () {
