@@ -26,11 +26,9 @@ module.exports = {
         use: ["raw-loader", "glslify-loader"],
       },
       {
-        // 拡張子 .js の場合
         test: /\.jsx$/,
         use: [
           {
-            // Babel を利用する
             loader: "babel-loader",
             // Babel のオプションを指定する
             options: {
@@ -48,7 +46,7 @@ module.exports = {
   },
   // import 文で .ts ファイルを解決するため
   resolve: {
-    extensions: [".ts", ".js"],
+    extensions: [".ts", ".js", ".jsx"],
   },
   // ES5(IE11等)向けの指定（webpack 5以上で必要）
   target: ["web", "es5"],

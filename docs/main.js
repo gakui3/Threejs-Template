@@ -4,7 +4,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import testVert from "./shaders/test.vert";
 import testFrag from "./shaders/test.frag";
 
-import { hoge } from "./test.jsx";
+import { hoge } from "./test";
 
 let canvas, renderer, scene, camera, geometry, gui;
 
