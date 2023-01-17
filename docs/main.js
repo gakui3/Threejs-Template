@@ -1,10 +1,14 @@
 import * as THREE from "three";
 import { GUI } from "three/examples/jsm/libs/dat.gui.module";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 import testVert from "./shaders/test.vert";
 import testFrag from "./shaders/test.frag";
 
-import { hoge } from "./test";
+import { App } from "./Components/App.jsx";
 
 let canvas, renderer, scene, camera, geometry, gui;
 
@@ -20,8 +24,11 @@ function init () {
   renderer = new THREE.WebGLRenderer({ canvas });
   document.body.appendChild(renderer.domElement);
   scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xffff00);
 
-  hoge();
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+  console.log(root);
+  root.render(<><App /></>);
 }
 
 function addCamera () {

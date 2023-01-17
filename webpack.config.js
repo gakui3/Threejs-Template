@@ -15,9 +15,7 @@ module.exports = {
   module: {
     rules: [
       {
-        // 拡張子 .ts の場合
         test: /\.ts$/,
-        // TypeScript をコンパイルする
         use: "ts-loader",
       },
       {
@@ -26,16 +24,13 @@ module.exports = {
         use: ["raw-loader", "glslify-loader"],
       },
       {
-        test: /\.jsx$/,
+        test: /\.(jsx|js)$/,
         use: [
           {
             loader: "babel-loader",
-            // Babel のオプションを指定する
             options: {
               presets: [
-                // プリセットを指定することで、ES2021 を ES5 に変換
                 "@babel/preset-env",
-                // React の JSX を解釈
                 "@babel/react",
               ],
             },
@@ -44,7 +39,6 @@ module.exports = {
       },
     ],
   },
-  // import 文で .ts ファイルを解決するため
   resolve: {
     extensions: [".ts", ".js", ".jsx"],
   },
