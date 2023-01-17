@@ -5,7 +5,7 @@ body {
 }
 
 .modal-button{
-    z-index: 4;
+    z-index: 5;
 }
 
 .modal-root{
@@ -14,7 +14,7 @@ body {
     height: 100%;
     background-color: darkgray;
     opacity: 0.6;
-    z-index: 2;
+    z-index: 5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +26,7 @@ body {
     width: 40%;
     height: 40%;
     background-color: white;
-    z-index: 3;
+    z-index: 5;
     opacity: 1.0;
     top: 0;
     bottom: 0;
@@ -43,6 +43,79 @@ body {
 
 .ui-element{
     color:crimson;
+}
+
+.gameModeHome-root{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 3;
+}
+
+.gameModeHome-background{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: white;
+    position: absolute;
+}
+
+.gameModeHome-back-button{
+    position: absolute;
+    left: 10vw;
+    top: 10vw;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 5px;
+    border: 2px solid #000000;
+}
+
+.gameModeHome-coinCount{
+    position: absolute;
+    right: 10vw;
+    top: 10vw;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 5px;
+    /* border: 2px solid #000000; */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:lightgray;
+}
+
+.gameModeHome-coinCount-text{
+    color: white;
+    font-weight:bold;
+}
+
+.gameModeHome-text{
+    position: absolute;
+    top: 30vw;
+    width: 60vw;
+    text-align: center;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.gameModeHome-play-button{
+    width: 50vw;
+    height: 15vw;
+    margin: 2vw;
+}
+
+.gameModeHome-play-buttons{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 110vw;
+    width: 100%;
 }
 
 #c 
