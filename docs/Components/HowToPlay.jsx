@@ -1,34 +1,24 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-const useHowToPlay = () => {
-  const [show, setShow] = useState(true);
-
-  const openHowToPlay = () => {
-    setShow(true);
+export const HowToPlay = (props) => {
+  const close = () => {
+    props.setShow(false);
   };
 
-  const closeHowToPlay = () => {
-    setShow(false);
-  };
-
-  const HowToPlay = () => {
-    if (!show) {
-      return <></>;
-    } else {
-      return ReactDOM.createPortal(
-        <>
-          <div className="modal-root"></div>
-          <div className="modal-content">
-            <button className="modal-button" onClick={closeHowToPlay()}>close</button>
-          </div>
-        </>,
-        document.getElementById("modal"),
-      );
-    }
-  };
-
-  return { HowToPlay, openHowToPlay };
+  if (!props.show) {
+    return <></>;
+  } else {
+    return ReactDOM.createPortal(
+      <>
+        <div className="modal-root"></div>
+        <div className="modal-content">
+          <button className="modal-button-close" onClick={close}>close</button>
+          <p className="modal-content-title">遊び方</p>
+          <div className="modal-content-text">説明文</div>
+        </div>
+      </>,
+      document.getElementById("modal"),
+    );
+  }
 };
-
-export default useHowToPlay;

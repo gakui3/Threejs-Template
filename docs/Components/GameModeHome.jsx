@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-import useHowToPlay from "./HowToPlay.jsx";
+import { HowToPlay } from "./HowToPlay.jsx";
 
-const { HowToPlay, openHowToPlay } = useHowToPlay;
+export const GameModeHome = () => {
+  const [show, setShow] = useState(false);
 
-const useGameModeHome = () => {
-  const GameModeHome = () => {
-    return ReactDOM.createPortal(
-    <>
+  const open = () => {
+    setShow(true);
+  };
+
+  return ReactDOM.createPortal(
+      <>
+        <HowToPlay show={show} setShow={setShow} />
         <div className="gameModeHome-background"></div>
         <button className="gameModeHome-back-button">もどる</button>
         <p className="gameModeHome-coinCount">
@@ -16,15 +20,10 @@ const useGameModeHome = () => {
         </p>
         <p className="gameModeHome-text">BUDDIOUSと一緒にレースにチャレンジしよう!</p>
         <div className="gameModeHome-play-buttons">
-            <button className="gameModeHome-play-button" onClick={openHowToPlay}>遊び方</button>
+            <button className="gameModeHome-play-button" onClick={open}>遊び方</button>
             <button className="gameModeHome-play-button">連れ歩きモード</button>
             <button className="gameModeHome-play-button">レースモード</button>
         </div>
     </>,
-    document.getElementById("gameModeHome"));
-  };
-
-  return { GameModeHome };
+      document.getElementById("gameModeHome"));
 };
-
-export default useGameModeHome;

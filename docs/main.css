@@ -4,8 +4,11 @@ body {
     height: 100%;
 }
 
-.modal-button{
+.modal-button-close{
     z-index: 5;
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
 }
 
 .modal-root{
@@ -23,8 +26,8 @@ body {
 
 .modal-content{
     position: absolute;
-    width: 40%;
-    height: 40%;
+    width: 60%;
+    height: 60%;
     background-color: white;
     z-index: 5;
     opacity: 1.0;
@@ -33,6 +36,21 @@ body {
     left: 0;
     right: 0;
     margin: auto;
+}
+
+.modal-content-title{
+    top: 3vw;
+    text-align: center;
+}
+
+.modal-content-text{
+    width: 80%;
+    height: 35%;
+    background-color: rgb(204, 204, 204);
+    text-align: center;
+    margin: auto;
+    left: 0;
+    right: 0;
 }
 
 .ui-root{
