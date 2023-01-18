@@ -53,25 +53,6 @@ function addObject () {
   scene.add(box);
 }
 
-function addGUI () {
-  gui = new GUI();
-  const folder = gui.addFolder("folder");
-  gui.width = 300;
-
-  folder.add(param, "value01").onChange((value) => {
-    console.log(value);
-  });
-  folder.add(param, "value02").onChange((value) => {
-    console.log(value);
-  });
-  folder.add(param, "value03", 0, 2.0).onChange((value) => {
-    console.log(value);
-  });
-  folder.add(param, "value04", ["hoge01", "hoge02"]).onChange((value) => {
-    console.log(value);
-  });
-}
-
 function update () {
   requestAnimationFrame(update);
 
@@ -100,6 +81,5 @@ function resizeRendererToDisplaySize (renderer) {
   init();
   addCamera();
   addObject();
-  addGUI();
   update();
 })();
