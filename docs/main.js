@@ -26,9 +26,9 @@ function init () {
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0xffff00);
 
-  const root = ReactDOM.createRoot(document.getElementById("root"));
+  const root = ReactDOM.createRoot(document.getElementById("uis"));
   console.log(root);
-  root.render(<><App /></>);
+  root.render(<App />);
 }
 
 function addCamera () {

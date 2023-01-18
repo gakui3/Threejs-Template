@@ -4,6 +4,12 @@ body {
     height: 100%;
 }
 
+.root{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
 .modal-button-close{
     z-index: 5;
     border-radius: 30px;
@@ -11,10 +17,11 @@ body {
     height: 30px;
 }
 
-.modal-root{
+.modal-background{
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 0;
     background-color: darkgray;
     opacity: 0.6;
     z-index: 5;
@@ -53,7 +60,7 @@ body {
     right: 0;
 }
 
-.ui-root{
+.ui{
     position: absolute;
     display: flex;
     z-index: 1;
@@ -66,8 +73,8 @@ body {
 .gameModeHome-root{
     width: 100%;
     height: 100%;
-    position: relative;
-    z-index: 3;
+    position: absolute;
+    z-index: 1;
 }
 
 .gameModeHome-background{
@@ -144,7 +151,7 @@ body {
     /* position: fixed; */
     left: 0;
     top: 0;
-    /* z-index: -2; */
+    z-index: 0;
     /* pointer-events: none; */
     position: absolute
 }
