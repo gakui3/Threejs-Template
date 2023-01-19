@@ -15,7 +15,7 @@ export const HowToPlay = (props) => {
           <div className="modal-content">
             <button className="modal-button-close" onClick={close}>close</button>
             <p className="modal-content-title">遊び方</p>
-            <div className="modal-content-text">説明文</div>
+            <div className="modal-content-text"><p>説明文</p></div>
           </div>
       </>,
       document.getElementById("modal"),
