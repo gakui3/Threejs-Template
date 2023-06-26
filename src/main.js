@@ -1,10 +1,10 @@
 import * as THREE from "three";
-import { GUI } from "three/examples/jsm/libs/dat.gui.module";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import testVert from "./shaders/test.vert";
-import testFrag from "./shaders/test.frag";
+import {GUI} from "three/examples/jsm/libs/dat.gui.module";
+import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
+import testVert from "./shaders/test.vert?raw";
+import testFrag from "./shaders/test.frag?raw";
 
-import { hoge } from "./test.jsx";
+import sampleTexture from "./assets/sample.png";
 
 let canvas, renderer, scene, camera, geometry, gui;
 
@@ -15,16 +15,14 @@ const param = {
   value04: "hoge01",
 };
 
-function init () {
+function init() {
   canvas = document.querySelector("#c");
-  renderer = new THREE.WebGLRenderer({ canvas });
+  renderer = new THREE.WebGLRenderer({canvas});
   document.body.appendChild(renderer.domElement);
   scene = new THREE.Scene();
-
-  hoge();
 }
 
-function addCamera () {
+function addCamera() {
   camera = new THREE.PerspectiveCamera(45, 800 / 600, 0.1, 100);
   camera.position.set(0, 0, -10);
   camera.aspect = canvas.clientWidth / canvas.clientHeight;
@@ -34,19 +32,26 @@ function addCamera () {
   controls.update();
 }
 
-function addObject () {
+function addObject() {
   geometry = new THREE.BoxGeometry(3, 3, 3);
 
-  const mat = new THREE.ShaderMaterial({
-    vertexShader: testVert,
-    fragmentShader: testFrag,
+  //shaderを使うsample
+  // const mat = new THREE.ShaderMaterial({
+  //   vertexShader: testVert,
+  //   fragmentShader: testFrag,
+  // });
+
+  //textureを使うsample
+  const texture = new THREE.TextureLoader().load(sampleTexture);
+  const mat = new THREE.MeshBasicMaterial({
+    map: texture,
   });
 
   const box = new THREE.Mesh(geometry, mat);
   scene.add(box);
 }
 
-function addGUI () {
+function addGUI() {
   gui = new GUI();
   const folder = gui.addFolder("folder");
   gui.width = 300;
@@ -65,7 +70,7 @@ function addGUI () {
   });
 }
 
-function update () {
+function update() {
   requestAnimationFrame(update);
 
   if (resizeRendererToDisplaySize(renderer)) {
@@ -77,7 +82,7 @@ function update () {
   renderer.render(scene, camera);
 }
 
-function resizeRendererToDisplaySize (renderer) {
+function resizeRendererToDisplaySize(renderer) {
   const canvas = renderer.domElement;
   // const pixelRatio = window.devicePixelRatio;
   const width = canvas.clientWidth;
